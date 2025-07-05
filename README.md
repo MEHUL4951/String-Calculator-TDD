@@ -48,7 +48,8 @@ This project demonstrates a step-by-step **Test-Driven Development (TDD)** appro
 ### 5.Support Custom Single-Character Delimiter (e.g. `//;\n1;2`)
 
 - **Failing Test:**
-  ![image](https://github.com/user-attachments/assets/0c90f838-cd63-41b8-8ace-7481d6438f8a)
+ ![Custome_single_delemeter_fails](https://github.com/user-attachments/assets/c57b662e-12c8-4772-ab78-3bb6c2f5846b)
+
   
 - **Passing Test:**
   ![custom_single_delemeter_pass](https://github.com/user-attachments/assets/e74fdd52-c394-4510-93d9-302d5ca3ef1a)
@@ -59,20 +60,25 @@ This project demonstrates a step-by-step **Test-Driven Development (TDD)** appro
 ### 6.Negative Numbers Throw Exception With All Negatives Listed
 
 - **Failing Test:**  
-  ![test_case6_fail](TDD/test_case6_fail.png)
+  ![Nagative_numberexception_fails](https://github.com/user-attachments/assets/6e235bea-8c76-4960-9cce-2eaca911baa6)
+
+
 
 - **Passing Test:**  
-  ![test_case6_pass](TDD/test_case6_pass.png)
+ ![Nagative_number_pass](https://github.com/user-attachments/assets/ebecd208-cc48-42b5-b8a2-d3aa298cab11)
+
 
 ---
 
 ### 7.Count How Many Times `Add()` is Called
 
 - **Failing Test:**  
-  ![test_case7_fail](TDD/test_case7_fail.png)
+ ![counter_fails](https://github.com/user-attachments/assets/ce947973-fd54-448a-a7c8-aa6c1a01e186)
+
 
 - **Passing Test:**  
-  ![test_case7_pass](TDD/test_case7_pass.png)
+ ![couner_pass](https://github.com/user-attachments/assets/7d3f5a8f-7782-44ab-a5fa-9fd983f07b09)
+
 
 ---
 
