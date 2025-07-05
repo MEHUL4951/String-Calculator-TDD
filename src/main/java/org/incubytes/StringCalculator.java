@@ -6,22 +6,33 @@ import java.util.List;
 public class StringCalculator
 {
 
+    private int addCallCount = 0;
+
     public int Add(String numbers) {
-          if(numbers.isEmpty()){
-               return 0;
-          }
-          String delimiter = ",";
-          String numberSection = numbers;
-          if (numbers.startsWith("//")) {
-            int delimiterEndIndex = numbers.indexOf("\n");
-            delimiter = numbers.substring(2, delimiterEndIndex);
-            numberSection = numbers.substring(delimiterEndIndex + 1);
-         }
-        String sanitized = numberSection.replace("\n", delimiter.equals("\n") ? "," : ",")
-                .replace(delimiter, ",");
-          String[] digits = sanitized.split(",");
-          int totalsum = sum(digits);
-          return totalsum;
+        addCallCount++;
+        if (numbers.isEmpty()) {
+            return 0;
+        }
+        String[] parts = normalizeDelimiters(numbers);
+        return sum(parts);
+    }
+
+    public int GetCalledCount() {
+        return addCallCount;
+    }
+
+    private String[] normalizeDelimiters(String input) {
+        String delimiter = ",";
+        String numberSection = input;
+
+        if (input.startsWith("//")) {
+            int delimiterEnd = input.indexOf("\n");
+            delimiter = input.substring(2, delimiterEnd);
+            numberSection = input.substring(delimiterEnd + 1);
+        }
+
+        numberSection = numberSection.replace("\n", ",").replace(delimiter, ",");
+        return numberSection.split(",");
     }
 
     private int sum(String[] parts) {
@@ -41,9 +52,9 @@ public class StringCalculator
         if (!negatives.isEmpty()) {
             throw new IllegalArgumentException(generateNegativeMessage(negatives));
         }
-
         return total;
     }
+
     private String generateNegativeMessage(List<Integer> negatives) {
         return "Negatives not allowed: " + String.join(", ",
                 negatives.stream().map(String::valueOf).toArray(String[]::new));
