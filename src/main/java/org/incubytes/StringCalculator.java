@@ -7,9 +7,12 @@ public class StringCalculator
           if(numbers.isEmpty()){
                return 0;
           }
-          String[] digits = numbers.split(",");
+          String[] digits = normalizeDelimiters(numbers);
           int totalsum = sum(digits);
           return totalsum;
+    }
+    private String[] normalizeDelimiters(String input) {
+        return input.replace("\n", ",").split(",");
     }
     private int sum(String[] digits) {
         int total = 0;
