@@ -46,6 +46,20 @@ public class StringCalculatorTest {
         });
         assertEquals("Negatives not allowed: -2, -4", exception.getMessage());
     }
+    @Test
+    public void testCustomDelimiterSemicolon() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.Add("//;\n1;2");
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void testCustomDelimiterPipe() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.Add("//|\n4|5|6");
+        assertEquals(15, result);
+    }
+
 
 
 
