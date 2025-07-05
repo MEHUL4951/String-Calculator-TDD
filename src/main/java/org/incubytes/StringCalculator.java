@@ -39,10 +39,13 @@ public class StringCalculator
         }
 
         if (!negatives.isEmpty()) {
-            String message = "Negatives not allowed: " + String.join(", ", negatives.stream().map(String::valueOf).toArray(String[]::new));
-            throw new IllegalArgumentException(message);
+            throw new IllegalArgumentException(generateNegativeMessage(negatives));
         }
 
         return total;
+    }
+    private String generateNegativeMessage(List<Integer> negatives) {
+        return "Negatives not allowed: " + String.join(", ",
+                negatives.stream().map(String::valueOf).toArray(String[]::new));
     }
 }
