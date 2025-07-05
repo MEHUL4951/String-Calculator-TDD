@@ -8,10 +8,14 @@ public class StringCalculator
                return 0;
           }
           String[] digits = numbers.split(",");
-          int totalSum = 0;
-          for (String part : digits) {
-              totalSum += Integer.parseInt(part.trim());
-          }
-          return totalSum;
+          int totalsum = sum(digits);
+          return totalsum;
+    }
+    private int sum(String[] digits) {
+        int total = 0;
+        for (String digit : digits) {
+            total += Integer.parseInt(digit.trim());
+        }
+        return total;
     }
 }
