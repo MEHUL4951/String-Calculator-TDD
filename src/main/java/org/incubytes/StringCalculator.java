@@ -30,9 +30,9 @@ public class StringCalculator
         }
 
         if (!negatives.isEmpty()) {
-            throw new IllegalArgumentException("Negatives not allowed: " + negatives.toString().replace("[", "").replace("]", ""));
+            String message = "Negatives not allowed: " + String.join(", ", negatives.stream().map(String::valueOf).toArray(String[]::new));
+            throw new IllegalArgumentException(message);
         }
-
         return total;
     }
 }
