@@ -109,6 +109,21 @@ public class StringCalculatorTest {
         assertEquals(1011, result);
     }
 
+    @Test
+    public void testMultipleSingleCharDelimiters() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.Add("//[*][%]\n1*2%3");
+        assertEquals(6, result);
+    }
+
+    @Test
+    public void testMultipleMultiCharDelimiters() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.Add("//[##][!!]\n4##5!!6");
+        assertEquals(15, result);
+    }
+
+
 
 
 }
