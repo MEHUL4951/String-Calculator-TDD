@@ -25,6 +25,11 @@ public class StringCalculatorTest {
           StringCalculator calculator = new StringCalculator();
           assertEquals(11,calculator.add("5,6"));
     }
+    @Test
+    void estMultipleNumbersReturnTheirSum(){
+         StringCalculator calculator = new StringCalculator();
+         assertEquals(50,calculator.add("5,10,15,20"));
+    }
 
 
 
