@@ -9,10 +9,18 @@ import static org.junit.Assert.assertEquals;
 public class StringCalculatorTest {
 
     @Test
-    void shouldReturnZeroForEmptyString(){
+    void testEmptyStringReturnsZero(){
         StringCalculator calculator = new StringCalculator();
         assertEquals(0,calculator.add(""));
     }
+
+    @Test
+    void stestSingleNumberReturnsItself(){
+          StringCalculator calculator = new StringCalculator();
+          assertEquals(3,calculator.add("3"));
+
+    }
+
 
 
 }
