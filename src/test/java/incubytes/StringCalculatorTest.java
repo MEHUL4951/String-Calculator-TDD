@@ -5,6 +5,7 @@ import org.incubytes.StringCalculator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StringCalculatorTest {
 
@@ -36,6 +37,16 @@ public class StringCalculatorTest {
         int result = calculator.add("10,20,30,40,50,60,70,80,90,100");
         assertEquals(550, result);
     }
+
+    @Test
+    public void testNegativeNumbersThrowException() {
+        StringCalculator calculator = new StringCalculator();
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            calculator.add("1,-2,3,-4");
+        });
+        assertEquals("Negatives not allowed: -2, -4", exception.getMessage());
+    }
+
 
 
 
