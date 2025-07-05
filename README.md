@@ -105,10 +105,12 @@ This project demonstrates a step-by-step **Test-Driven Development (TDD)** appro
 ### 10.Multiple Delimiters (e.g. `//[*][%]\n1*2%3`)
 
 - **Failing Test:**  
-  ![test_case10_fail](TDD/test_case10_fail.png)
+ ![multiple_delemeters](https://github.com/user-attachments/assets/45b3af31-dda0-4c0f-9698-6a4d77150e6e)
+
 
 - **Passing Test:**  
-  ![test10_pass](TDD/test10_pass.png)
+ ![Screenshot 2025-07-05 170307](https://github.com/user-attachments/assets/86b735df-edb9-48e1-9183-4bfe71687460)
+
 
 ---
 
