@@ -9,7 +9,8 @@ This project demonstrates a step-by-step **Test-Driven Development (TDD)** appro
 ### 1. ✅ Empty String Should Return 0
 
 - **Failing Test:**
-  ![Failing Test](TDD/TestCase1_fail.png)
+  ![TestCase1_fail](https://github.com/user-attachments/assets/8b5a86fe-f13c-4b3c-a708-4d06b725551f)
+
 
 - **Passing Test:**
   ![Passing Test](TDD/TestCase1_Pass.png)
