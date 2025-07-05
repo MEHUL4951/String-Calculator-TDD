@@ -7,6 +7,7 @@ public class StringCalculator
 {
 
     private int addCallCount = 0;
+    private static  final int MAX_ALLOWED = 1000;
 
     public int Add(String numbers) {
         addCallCount++;
@@ -44,7 +45,7 @@ public class StringCalculator
             int number = Integer.parseInt(part.trim());
             if (number < 0) {
                 negatives.add(number);
-            } else if(number<=1000){
+            } else if(number<=MAX_ALLOWED){
                 total += number;
             }
         }
