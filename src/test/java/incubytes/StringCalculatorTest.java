@@ -81,4 +81,19 @@ public class StringCalculatorTest {
         assertEquals(3, calculator.GetCalledCount());
     }
 
+    @Test
+    public void testNumbersGreaterThan1000AreIgnored() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.Add("2,1001");
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void testMultipleLargeNumbersIgnored() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.Add("5,500,1000,1001,12345");
+        assertEquals(1505, result);  // only 1000 and below are included
+    }
+
+
 }
