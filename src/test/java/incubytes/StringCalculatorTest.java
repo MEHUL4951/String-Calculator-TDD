@@ -18,7 +18,12 @@ public class StringCalculatorTest {
     void stestSingleNumberReturnsItself(){
           StringCalculator calculator = new StringCalculator();
           assertEquals(3,calculator.add("3"));
+    }
 
+    @Test
+    void testTwoNumbersReturnTheirSum(){
+          StringCalculator calculator = new StringCalculator();
+          assertEquals(11,calculator.add("5,6"));
     }
 
 
