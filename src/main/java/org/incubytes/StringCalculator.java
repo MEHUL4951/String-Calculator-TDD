@@ -22,20 +22,28 @@ public class StringCalculator
         return addCallCount;
     }
 
+
     private String[] normalizeDelimiters(String input) {
         String delimiter = ",";
         String numberSection = input;
 
         if (input.startsWith("//")) {
-            int delimiterEnd = input.indexOf("\n");
-            delimiter = input.substring(2, delimiterEnd);
-            numberSection = input.substring(delimiterEnd + 1);
+            int newlineIndex = input.indexOf("\n");
+            String delimiterPart = input.substring(2, newlineIndex);
+
+            if (delimiterPart.startsWith("[") && delimiterPart.endsWith("]")) {
+                delimiter = delimiterPart.substring(1, delimiterPart.length() - 1); // multi-char
+            } else {
+                delimiter = delimiterPart; // single-char
+            }
+
+            numberSection = input.substring(newlineIndex + 1);
         }
 
+        // Normalize all delimiters to comma
         numberSection = numberSection.replace("\n", ",").replace(delimiter, ",");
         return numberSection.split(",");
     }
-
     private int sum(String[] parts) {
         int total = 0;
         List<Integer> negatives = new ArrayList<>();
