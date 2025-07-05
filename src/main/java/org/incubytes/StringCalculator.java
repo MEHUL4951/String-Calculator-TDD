@@ -10,17 +10,26 @@ public class StringCalculator
           if(numbers.isEmpty()){
                return 0;
           }
-          String[] digits = normalizeDelimiters(numbers);
+          String delimiter = ",";
+          String numberSection = numbers;
+          if (numbers.startsWith("//")) {
+            int delimiterEndIndex = numbers.indexOf("\n");
+            delimiter = numbers.substring(2, delimiterEndIndex);
+            numberSection = numbers.substring(delimiterEndIndex + 1);
+         }
+        String sanitized = numberSection.replace("\n", delimiter.equals("\n") ? "," : ",")
+                .replace(delimiter, ",");
+          String[] digits = sanitized.split(",");
           int totalsum = sum(digits);
           return totalsum;
     }
-    private String[] normalizeDelimiters(String input) {
-        return input.replace("\n", ",").split(",");
-    }
+
     private int sum(String[] parts) {
         int total = 0;
         List<Integer> negatives = new ArrayList<>();
+
         for (String part : parts) {
+            if (part.isEmpty()) continue;
             int number = Integer.parseInt(part.trim());
             if (number < 0) {
                 negatives.add(number);
@@ -33,6 +42,7 @@ public class StringCalculator
             String message = "Negatives not allowed: " + String.join(", ", negatives.stream().map(String::valueOf).toArray(String[]::new));
             throw new IllegalArgumentException(message);
         }
+
         return total;
     }
 }
