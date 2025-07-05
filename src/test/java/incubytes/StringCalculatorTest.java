@@ -95,5 +95,20 @@ public class StringCalculatorTest {
         assertEquals(1505, result);  // only 1000 and below are included
     }
 
+    @Test
+    public void testMultiCharDelimiterWithAsterisks() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.Add("//[***]\n1***2***3");
+        assertEquals(6, result);
+    }
+
+    @Test
+    public void testMultiCharDelimiterWithLetters() {
+        StringCalculator calculator = new StringCalculator();
+        int result = calculator.Add("//[abc]\n5abc1000abc6");
+        assertEquals(1011, result);
+    }
+
+
 
 }
