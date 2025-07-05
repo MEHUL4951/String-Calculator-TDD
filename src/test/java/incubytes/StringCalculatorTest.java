@@ -70,10 +70,15 @@ public class StringCalculatorTest {
         assertEquals("Negatives not allowed: -4, -9", exception.getMessage());
     }
 
+    @Test
+    public void testGetCalledCountReturnsCorrectInvocationCount() {
+        StringCalculator calculator = new StringCalculator();
 
+        calculator.Add("1,2");
+        calculator.Add("3,4");
+        calculator.Add("5");
 
-
-
-
+        assertEquals(3, calculator.GetCalledCount());
+    }
 
 }
