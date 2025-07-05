@@ -13,24 +13,26 @@ This project demonstrates a step-by-step **Test-Driven Development (TDD)** appro
 
 
 - **Passing Test:**
-  ![Passing Test](TDD/TestCase1_Pass.png)
+  ![TestCase1_Pass](https://github.com/user-attachments/assets/93ee8c0f-1177-4641-a059-97350df51d60)
 
 ---
 
 ### 2. ✅ One or Two Numbers Return Their Sum
 
 - **Failing Test:**
-  ![Failing](TDD/TestCase2_fail.png)
+  ![TestCase2_fail](https://github.com/user-attachments/assets/83831ee1-3031-4252-a262-07a683a037c1)
+
 
 - **Passing Test:**
-  ![Passing](TDD/Test_case2_Pass.png)
+  ![Test_case2_Pass](https://github.com/user-attachments/assets/53091f3d-3b1e-467b-a89c-163e87c478f4)
+
 
 ---
 
 ### 3. ✅ Handle Newline as Delimiter
 
 - **Failing Test:**
-  ![Failing](TDD/test_case3_fails.png)
+  
 
 - **Passing Test:**
   ![Passing](TDD/testCase3_pass.png)
