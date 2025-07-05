@@ -36,16 +36,7 @@ public class StringCalculator
             numberSection = input.substring(newlineIndex + 1);
 
             if (delimiterPart.startsWith("[") && delimiterPart.contains("]")) {
-                // Multiple delimiters
-                int i = 0;
-                while (i < delimiterPart.length()) {
-                    int start = delimiterPart.indexOf("[", i);
-                    int end = delimiterPart.indexOf("]", start);
-                    if (start == -1 || end == -1) break;
-                    String delim = delimiterPart.substring(start + 1, end);
-                    delimiters.add(delim);
-                    i = end + 1;
-                }
+                delimiters.addAll(extractDelimiters(delimiterPart));
             } else {
                 delimiters.add(delimiterPart); // Single-char delimiter
             }
@@ -60,6 +51,19 @@ public class StringCalculator
         String delimiterRegex = String.join("|", delimiters);
         return numberSection.split(delimiterRegex);
     }
+    private List<String> extractDelimiters(String delimiterPart) {
+        List<String> delimiters = new ArrayList<>();
+        int i = 0;
+        while (i < delimiterPart.length()) {
+            int start = delimiterPart.indexOf("[", i);
+            int end = delimiterPart.indexOf("]", start);
+            if (start == -1 || end == -1) break;
+            delimiters.add(delimiterPart.substring(start + 1, end));
+            i = end + 1;
+        }
+        return delimiters;
+    }
+
 
     private int sum(String[] parts) {
         int total = 0;
