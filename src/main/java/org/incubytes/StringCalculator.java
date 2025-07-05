@@ -44,7 +44,7 @@ public class StringCalculator
             int number = Integer.parseInt(part.trim());
             if (number < 0) {
                 negatives.add(number);
-            } else {
+            } else if(number<=1000){
                 total += number;
             }
         }
