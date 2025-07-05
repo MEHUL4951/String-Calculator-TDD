@@ -27,21 +27,22 @@ This project demonstrates a step-by-step **Test-Driven Development (TDD)** appro
 
 ---
 
-### 3. ✅ Handle Newline as Delimiter
+### 3. ✅ Handle Delimiter
 
 - **Failing Test:**  
-  *(Not captured or skipped)*
+  ![test_case7_fail](https://github.com/user-attachments/assets/4ff5688d-7667-4efd-90ed-f6686fd76628)
+
 
 - **Passing Test:**  
-  ![testCase3_pass](TDD/testCase3_pass.png)
+  ![test_case7_pass](https://github.com/user-attachments/assets/e51efb43-d272-4a4e-be09-b8d9464ee44e)
 
 ---
 
 ### 4. ✅ Support Unknown Amount of Numbers
 
 - **Passing Test:**  
-  ![testCase4_pass](TDD/testCase4_pass.png)
-
+  Already Handled
+  ![test_case7_pass](https://github.com/user-attachments/assets/bdd2820b-4d9e-45fc-81fc-c8977b159df0)
 ---
 
 ### 5. ✅ Support Custom Single-Character Delimiter (e.g. `//;\n1;2`)
@@ -73,15 +74,21 @@ This project demonstrates a step-by-step **Test-Driven Development (TDD)** appro
 
 ### 8. ✅ Numbers Greater Than 1000 are Ignored
 
-- **Passing Test:**  
-  ![test_case8_pass](TDD/test_case8_pass.png)
+- **Failing  Test:**  
+  ![test_case10_fail](https://github.com/user-attachments/assets/26ce9c78-7720-49cf-a353-17ee23a2dbf4)
+
+  **Passing Test:**
+  ![test10_pass](https://github.com/user-attachments/assets/fde5b511-e9a8-46c5-bb3e-16d83b839d17)
+
+
 
 ---
 
 ### 9. ✅ Custom Delimiters of Any Length (e.g. `//[***]\n1***2***3`)
 
 - **Passing Test:**  
-  ![test_case9_pass](TDD/test_case9_pass.png)
+  ![test_case11_pass](https://github.com/user-attachments/assets/2c2754b9-ec71-4a66-97e0-92fafb03d9c9)
+
 
 ---
 
@@ -98,20 +105,12 @@ This project demonstrates a step-by-step **Test-Driven Development (TDD)** appro
 ### 11. ✅ Multiple Multi-Character Delimiters (e.g. `//[##][!!]\n4##5!!6`)
 
 - **Failing Test:**  
-  ![testCase11_fail](TDD/testCase11_fail.png)
+  ![testCase11_fail](https://github.com/user-attachments/assets/621f8362-6795-402c-b0fe-582fc082d8db)
+
 
 - **Passing Test:**  
-  ![test_case11_pass](TDD/test_case11_pass.png)
+  ![test_case11_pass](https://github.com/user-attachments/assets/785bc9d7-5d66-4473-8671-096ed5018aeb)
 
----
-
-### 12. ✅ Add Event: `AddOccured(string input, int result)` *(C# Only)*
-
-- **Failing Test:**  
-  ![testCase12_fails](TDD/testCase12_fails.png)
-
-- **Passing Test:**  
-  ![test_12_pass](TDD/test_12_pass.png)
 
 ---
 
@@ -123,8 +122,4 @@ Each functionality followed this Red-Green-Refactor workflow:
 2. 🟢 **Green**: Implement the simplest logic to make the test pass.
 3. 🔵 **Refactor**: Clean up and optimize the code without changing behavior.
 
----
 
-## 📸 Screenshot Directory
-
-All screenshots are stored in the `/TDD/` directory:
