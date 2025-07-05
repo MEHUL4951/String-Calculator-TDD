@@ -1,6 +1,7 @@
 package org.incubytes;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 
 public class StringCalculator
@@ -24,26 +25,42 @@ public class StringCalculator
 
 
     private String[] normalizeDelimiters(String input) {
-        String delimiter = ",";
         String numberSection = input;
+        List<String> delimiters = new ArrayList<>();
+        delimiters.add(","); // default comma
+        delimiters.add("\n"); // default newline
 
         if (input.startsWith("//")) {
             int newlineIndex = input.indexOf("\n");
             String delimiterPart = input.substring(2, newlineIndex);
-
-            if (delimiterPart.startsWith("[") && delimiterPart.endsWith("]")) {
-                delimiter = delimiterPart.substring(1, delimiterPart.length() - 1); // multi-char
-            } else {
-                delimiter = delimiterPart; // single-char
-            }
-
             numberSection = input.substring(newlineIndex + 1);
+
+            if (delimiterPart.startsWith("[") && delimiterPart.contains("]")) {
+                // Multiple delimiters
+                int i = 0;
+                while (i < delimiterPart.length()) {
+                    int start = delimiterPart.indexOf("[", i);
+                    int end = delimiterPart.indexOf("]", start);
+                    if (start == -1 || end == -1) break;
+                    String delim = delimiterPart.substring(start + 1, end);
+                    delimiters.add(delim);
+                    i = end + 1;
+                }
+            } else {
+                delimiters.add(delimiterPart); // Single-char delimiter
+            }
         }
 
-        // Normalize all delimiters to comma
-        numberSection = numberSection.replace("\n", ",").replace(delimiter, ",");
-        return numberSection.split(",");
+        // Escape special characters for regex
+        for (int i = 0; i < delimiters.size(); i++) {
+            delimiters.set(i, Pattern.quote(delimiters.get(i)));
+        }
+
+        // Build regex to split with any delimiter
+        String delimiterRegex = String.join("|", delimiters);
+        return numberSection.split(delimiterRegex);
     }
+
     private int sum(String[] parts) {
         int total = 0;
         List<Integer> negatives = new ArrayList<>();
